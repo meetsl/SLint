@@ -1,0 +1,46 @@
+plugins {
+    id 'java-gradle-plugin'
+    id 'groovy-gradle-plugin'
+    id 'maven-publish'
+}
+
+gradlePlugin {
+    plugins {
+        zybPlugin {
+            id = 'com.zybang.scanner'
+            implementationClass = 'com.zybang.scannerlib.ScannerPlugin'
+        }
+    }
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = GROUP_ID
+            artifactId = ARTIFACT_ID
+            version = VERSION
+
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            allowInsecureProtocol = true
+            url = uri(RELEASE_URL)
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = USER_NAME
+                password = PASSWORD
+            }
+        }
+    }
+}
+
+
+
+dependencies {
+    implementation "com.android.tools.build:gradle:7.4.2"
+}

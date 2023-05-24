@@ -1,0 +1,25 @@
+plugins {
+    id 'java-library'
+    id 'kotlin'
+    id 'com.android.lint'
+}
+/**
+ * Lint-Registry是透露给lint工具的注册类的方法，
+ * 也就是PermissionIssueRegistry是lint工具的入口,同时也通过这个方法进行打jar包
+ */
+jar {
+    manifest {
+        attributes('Lint-Registry-v2': 'com.zybang.lint_rules.ZybIssueRegistry')
+    }
+}
+def lintVersion = '30.4.2'
+
+dependencies {
+    compileOnly "com.android.tools.lint:lint-api:$lintVersion"
+    compileOnly "com.android.tools.lint:lint-checks:$lintVersion"
+    compileOnly 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0'
+
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "com.android.tools.lint:lint:$lintVersion"
+    testImplementation "com.android.tools.lint:lint-tests:$lintVersion"
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="BuildVersionCode">
+        <option name="package" value="com.zybang.slcodescanner" />
+    </issue>
+</lint>

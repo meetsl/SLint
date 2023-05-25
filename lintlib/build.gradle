@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+apply from: '../publish.gradle'
+
 android {
     namespace 'com.zybang.lintlib'
     compileSdk 33
@@ -31,6 +33,12 @@ android {
 
     lintOptions {
         checkDependencies true
+    }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
     }
 }
 

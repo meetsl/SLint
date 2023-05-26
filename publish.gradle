@@ -4,7 +4,7 @@ apply plugin: 'signing'
 ext {
     PUBLISH_GROUP_ID = 'io.github.meetsl'
     PUBLISH_ARTIFACT_ID = 'SLint'
-    PUBLISH_VERSION = '1.0.0'
+    PUBLISH_VERSION = '1.0.2'
 }
 
 ext["signing.keyId"] = ''

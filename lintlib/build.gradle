@@ -10,7 +10,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        minSdk 21
+        minSdk 15
         targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -44,6 +44,5 @@ android {
 
 /** Package the given lint checks library into this AAR  */
 dependencies {
-    implementation project(':lint-rules')
     lintPublish project(':lint-rules')
 }

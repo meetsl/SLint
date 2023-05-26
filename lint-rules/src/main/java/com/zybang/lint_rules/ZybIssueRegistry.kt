@@ -1,6 +1,7 @@
 package com.zybang.lint_rules
 
 import com.android.tools.lint.client.api.IssueRegistry
+import com.android.tools.lint.client.api.Vendor
 import com.android.tools.lint.detector.api.CURRENT_API
 import com.android.tools.lint.detector.api.Issue
 
@@ -19,4 +20,11 @@ class ZybIssueRegistry : IssueRegistry() {
 
     override val api: Int
         get() = CURRENT_API
+
+    override val vendor: Vendor
+        get() = Vendor(
+            vendorName = "SLint",
+            feedbackUrl = "https://github.com/meetsl/SLint",
+            contact = "meetsl.dev@gmail.com"
+        )
 }

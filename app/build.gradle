@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+//    id 'com.meetsl.plugin'
 }
 
 android {
@@ -29,13 +30,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-
-    lintOptions {
-        // 是否在发现任何错误时立即停止构建过程
-        abortOnError false
-        // 在构建过程中会输出 lint 的依赖信息
-        checkDependencies true
     }
 }
 

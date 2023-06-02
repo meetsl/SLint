@@ -16,7 +16,7 @@ import com.android.tools.lint.detector.api.Issue
 @Suppress("UnstableApiUsage")
 class ZybIssueRegistry : IssueRegistry() {
     override val issues: List<Issue>
-        get() = mutableListOf(VersionCodeDetector.ISSUE)
+        get() = ForbidConfigs.getAllForbid().map { it.getIssue() }
 
     override val api: Int
         get() = CURRENT_API

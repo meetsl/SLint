@@ -1,14 +1,15 @@
 plugins {
     id 'java-gradle-plugin'
     id 'groovy-gradle-plugin'
+    id 'org.jetbrains.kotlin.jvm' version '1.8.0'
     id 'maven-publish'
 }
 
 gradlePlugin {
     plugins {
-        zybPlugin {
-            id = 'com.zybang.scanner'
-            implementationClass = 'com.zybang.scannerlib.ScannerPlugin'
+        SLPlugin {
+            id = 'com.meetsl.plugin'
+            implementationClass = 'com.zybang.slint.SLintPlugin'
         }
     }
 }
@@ -40,7 +41,7 @@ publishing {
 }
 
 
-
 dependencies {
     implementation "com.android.tools.build:gradle:7.4.2"
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0'
 }

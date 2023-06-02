@@ -17,7 +17,7 @@ package com.example.lint.checks
 
 import com.android.tools.lint.checks.infrastructure.LintDetectorTest.java
 import com.android.tools.lint.checks.infrastructure.TestLintTask.lint
-import com.zybang.lint_rules.VersionCodeDetector
+import com.zybang.lint_rules.reference.VersionCodeReference
 import org.junit.Test
 
 @Suppress("UnstableApiUsage")
@@ -39,11 +39,11 @@ class VersionCodeFinderTest {
                     """
             ).indented()
         )
-            .issues(VersionCodeDetector.ISSUE)
+            .issues(VersionCodeReference.ISSUE)
             .run()
             .expect(
                 """
-                    src/test/pkg/BuildConfig.java:8: Error: Using VERSION_CODE to get app version code is not recommended [BuildVersionCode]
+                    src/test/pkg/BuildConfig.java:8: Error: Using BuildConfig.VERSION_CODE to get app version code is not recommended [BuildVersionCode]
     private static int s2 = BuildConfig.VERSION_CODE;
                                         ~~~~~~~~~~~~
 1 errors, 0 warnings

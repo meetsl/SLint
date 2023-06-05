@@ -1,5 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+buildscript {
+    dependencies {
+        if (devPlugin != '1') {
+            classpath "io.github.meetsl:SLintPlugin:1.0.0"
+        }
+    }
+}
 plugins {
     id 'com.android.application' version '7.4.2' apply false
     id 'com.android.library' version '7.4.2' apply false

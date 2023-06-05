@@ -4,7 +4,9 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
-    includeBuild('./SLintPlugin')
+    if (devPlugin == '1') {
+        includeBuild('./SLintPlugin')
+    }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -16,6 +18,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "SLCodeScanner"
 include ':app'
-include ':lint-rules'
-include ':lintlib'
 include ':commonlib'
+if (devSLint == '1') {
+    include ':lint-rules'
+    include ':lintlib'
+}
